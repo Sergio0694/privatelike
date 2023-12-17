@@ -38,8 +38,8 @@
   <ItemGroup Label="Package">
 
     <!-- Include the custom .targets file to check the source generator -->
-    <None Include="..\PrivateLike\PolySharp.targets" PackagePath="buildTransitive\" Pack="true" />
-    <None Include="..\PrivateLike\PolySharp.targets" PackagePath="build\" Pack="true" />
+    <None Include="..\PrivateLike\PrivateLike.targets" PackagePath="buildTransitive\" Pack="true" />
+    <None Include="..\PrivateLike\PrivateLike.targets" PackagePath="build\" Pack="true" />
 
     <!-- Pack the source generator binary -->
      <None Include="..\PrivateLike\bin\$(Configuration)\netstandard2.0\PrivateLike.dll" PackagePath="analyzers\dotnet\cs" Pack="true" />

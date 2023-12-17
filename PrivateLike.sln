@@ -7,7 +7,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{11F08026-CD23-4489-A181-8528501F382E}"
 	ProjectSection(SolutionItems) = preProject
 		src\PrivateLike.Package\icon.png = src\PrivateLike.Package\icon.png
-		src\PrivateLike.Package\PolySharp.Package.msbuildproj = src\PrivateLike.Package\PolySharp.Package.msbuildproj
+		src\PrivateLike.Package\PrivateLike.Package.msbuildproj = src\PrivateLike.Package\PrivateLike.Package.msbuildproj
 		src\PrivateLike.Package\README.md = src\PrivateLike.Package\README.md
 	EndProjectSection
 EndProject
