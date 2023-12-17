@@ -70,8 +70,27 @@ public sealed class PrivateLikeAttributeAnalyzer : DiagnosticAnalyzer
                     continue;
                 }
 
-                if (!SymbolEqualityComparer.Default.Equals(parentSymbol, typeSymbol) &&
-                    !SymbolEqualityComparer.Default.Equals(parentSymbol, typeSymbol.ContainingType))
+                bool shouldEmitDiagnostic = true;
+
+                if (SymbolEqualityComparer.Default.Equals(parentSymbol, typeSymbol))
+                {
+                    shouldEmitDiagnostic = false;
+
+                    continue;
+                }
+
+                for (ISymbol? currentSymbol = parentSymbol; currentSymbol is not null; currentSymbol = currentSymbol.ContainingType)
+                {
+                    if (SymbolEqualityComparer.Default.Equals(currentSymbol, typeSymbol) ||
+                        SymbolEqualityComparer.Default.Equals(currentSymbol, typeSymbol.ContainingType))
+                    {
+                        shouldEmitDiagnostic = false;
+
+                        continue;
+                    }
+                }
+
+                if (shouldEmitDiagnostic)
                 {
                     context.ReportDiagnostic(Diagnostic.Create(
                         InvalidReferenceToPrivateLikeType,
